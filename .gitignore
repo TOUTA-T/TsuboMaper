@@ -18,6 +18,7 @@
 !/storage/.keep
 
 /node_modules
+/public/uploads
 /yarn-error.log
 
 .byebug_history
