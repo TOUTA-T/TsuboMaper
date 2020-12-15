@@ -1,27 +1,56 @@
 class RecordsController < ApplicationController
+  before_action :set_record, only: [:show, :edit, :update, :destroy]
+  # before_action :autenticate_user, only: [:edit, :update, :destroy]
+
   def index
     @records = Record.all
   end
 
   def new
-    @records = Record.new
+    @record = Record.new
   end
 
   def edit
   end
 
   def create
+    @record = Record.new(record_params)
+    if params[:back]
+      render :new
+    else
+      if @record.save
+        # RecordMailer.record_mail(@record).deliver メール設定（仮）
+        redirect_to records_path, notice: "投稿されました！"
+      else
+        render :new
+      end
+    end
   end
 
   def update
+    respond_to do |format|
+      if @record.update(record_params)
+        format.html { redirect_to records_path, notice: '編集は正常に行われました' }
+        format.json { render :index, status: :ok, location: @record }
+      else
+        format.html { render :edit }
+        format.json { render json: @record.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
+    @record.destroy
+    respond_to do |format|
+      format.html { redirect_to records_url, notice: '投稿を削除しました' }
+      format.json { head :no_content }
+    end
   end
 
   private
 
   def set_record
+    @record = Record.find(params[:id])
   end
 
   def record_params

@@ -1,0 +1,27 @@
+<p>
+  <strong>ID:</strong>
+  userIDが入る予定地
+</p>
+
+<p>
+  <strong>コメント:</strong>
+  <%= @record.comment %>
+</p>
+
+<p>
+  <strong>痛みMAP:</strong>
+  <%= image_tag @record.expect_picture.url %>
+</p>
+
+<p>
+  <strong>施術中画像:</strong>
+  <%= image_tag @record.treatment_picture.url %>
+</p>
+
+<p>
+  <strong>保存用画像(最終):</strong>
+  <%= image_tag @record.storage_picture.url %>
+</p>
+
+<%= link_to 'Edit', edit_record_path(@record) %> |
+<%= link_to 'Back', records_path %>
