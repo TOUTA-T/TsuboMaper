@@ -7,4 +7,7 @@ class Record < ApplicationRecord
   mount_uploader :treatment_picture, ImageUploader
   mount_uploader :storage_picture, ImageUploader
   #できれば保存ファイルはそれぞれで分ける設定にしたい（低）
+  has_many :favorites
+  has_many :users, through: :favorites
+  belongs_to :user
 end

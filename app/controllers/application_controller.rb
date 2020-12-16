@@ -5,4 +5,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:display_id, :admin])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :representative_name, :tel, :payment])
   end
+
+  def after_sign_out_path_for(resource)
+   new_user_session_path
+  end
+
 end

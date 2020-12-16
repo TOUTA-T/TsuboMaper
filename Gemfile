@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.5'
 
 # 追加gem郡
 gem 'devise'
+gem 'devise-i18n'
 gem 'bcrypt'
 gem 'mini_magick'
 gem 'carrierwave'
