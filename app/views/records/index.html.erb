@@ -7,7 +7,7 @@
       <th>期待値画像</th>
       <th>施術中画像</th>
       <th>保存用画像</th>
-      <!-- <th>いいね</th> -->
+      <th>いいね</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,6 +19,11 @@
         <td><%= image_tag r.expect_picture.url%></td>
         <td><%= image_tag r.treatment_picture.url%></td>
         <td><%= image_tag r.storage_picture.url%></td>
+        <% if current_user.favorited_by?(r.id) %>
+        <td><%= link_to '❤', destroy_favorite_path(r), method: :DELETE %></td>
+        <% else %>
+        <td><%= link_to '♡', create_favorite_path(r), method: :POST %></td>
+        <% end %>
         <td><%= link_to '詳細確認', r %></td>
         <td><%= link_to '編集', edit_record_path(r) %></td>
         <td><%= link_to '削除', r, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>

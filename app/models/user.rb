@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :fav_records, through: :favorites, source: :record
 
   # お気に入りメソッド
-  def favorited_by?(post_id)
+  def favorited_by?(record_id)
     favorites.where(record_id: record_id).exists?
   end
 end
