@@ -3,11 +3,12 @@ class RecordsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @records = Record.all
+    @records = Record.where(user_id:current_user.id)
   end
 
   def new
     @record = Record.new
+    @record.user_id = current_user.id
   end
 
   def edit
@@ -15,6 +16,7 @@ class RecordsController < ApplicationController
 
   def create
     @record = Record.new(record_params)
+    @record.user_id = current_user.id
     if params[:back]
       render :new
     else
@@ -54,6 +56,6 @@ class RecordsController < ApplicationController
   end
 
   def record_params
-    params.require(:record).permit(:comment, :pain_a, :pain_b, :pain_c, :person_in_charge, :pain_level, :expect_picture, :expect_picture_cache, :treatment_picture, :treatment_picture_cache, :storage_picture, :storage_picture_cache)
+    params.require(:record).permit(:comment, :pain_a, :pain_b, :pain_c, :person_in_charge, :pain_level, :expect_picture, :expect_picture_cache, :treatment_picture, :treatment_picture_cache, :storage_picture, :storage_picture_cache, { label_ids: [] })
   end
 end

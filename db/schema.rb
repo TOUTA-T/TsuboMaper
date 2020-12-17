@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_16_005155) do
+ActiveRecord::Schema.define(version: 2020_12_17_012626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,22 @@ ActiveRecord::Schema.define(version: 2020_12_16_005155) do
     t.index ["record_id"], name: "index_favorites_on_record_id"
     t.index ["user_id", "record_id"], name: "index_favorites_on_user_id_and_record_id", unique: true
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "labellings", force: :cascade do |t|
+    t.bigint "record_id"
+    t.bigint "label_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["label_id"], name: "index_labellings_on_label_id"
+    t.index ["record_id"], name: "index_labellings_on_record_id"
+  end
+
+  create_table "labels", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "detail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "records", force: :cascade do |t|
@@ -73,5 +89,7 @@ ActiveRecord::Schema.define(version: 2020_12_16_005155) do
 
   add_foreign_key "favorites", "records"
   add_foreign_key "favorites", "users"
+  add_foreign_key "labellings", "labels"
+  add_foreign_key "labellings", "records"
   add_foreign_key "records", "users"
 end

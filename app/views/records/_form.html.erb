@@ -11,8 +11,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.text_field :person_in_charge, placeholder:"施術者を入力" %><br>
-    <%= form.text_area :comment, placeholder:"コメントを入力" %><br>
+    <%= form.text_field :person_in_charge, placeholder:"施術者を入力" %><br/>
+    <%= form.text_area :comment, placeholder:"コメントを入力" %><br/>
     <%= form.text_field :pain_a, placeholder:"一番痛いところを入力" %>
   </div>
   <div class="image">
@@ -30,8 +30,21 @@
     <%= form.file_field :storage_picture %>
     <%= form.hidden_field :storage_picture_cache %>
   </div>
-
-  <div class="actions">
-    <%= form.submit "作成" %>
+  <div>
+    <%= form.label :label, "自覚症状にチェックを入れて下さい" %>
+    <br/>
+    <div class="checkbox-inline">
+      <%= form_for @record do |f| %>
+        <%= f.collection_check_boxes(:label_ids, Label.where(detail: "カルテ"), :id, :name) do |b| %>
+          <%= b.label { b.check_box + b.text } %>
+          <br/>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="actions">
+      <%= form.submit "作成" %>
+    </div>
   </div>
+
+
 <% end %>

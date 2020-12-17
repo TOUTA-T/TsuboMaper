@@ -1,6 +1,6 @@
 <p>
   <strong>ID:</strong>
-  userIDが入る予定地
+  <%= @record.user.display_id %>
 </p>
 
 <p>
@@ -21,6 +21,13 @@
 <p>
   <strong>保存用画像(最終):</strong>
   <%= image_tag @record.storage_picture.url %>
+</p>
+
+<p>
+  <strong>自覚症状</strong>
+  <% @record.labels.each do |l| %>
+    ：<%= l.name %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_record_path(@record) %> |
