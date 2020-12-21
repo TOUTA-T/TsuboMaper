@@ -10,39 +10,41 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.text_field :person_in_charge, placeholder:"施術者を入力" %><br/>
-    <%= form.text_area :comment, placeholder:"コメントを入力" %><br/>
-    <%= form.text_field :pain_a, placeholder:"一番痛いところを入力" %>
-  </div>
-  <div class="image">
-    <%= form.label :expect_picture, "期待値画像" %>
-    <%= form.file_field :expect_picture %>
-    <%= form.hidden_field :expect_picture_cache %>
-  </div>
-  <div class="image">
-    <%= form.label :treatment_picture, "施術中画像" %>
-    <%= form.file_field :treatment_picture %>
-    <%= form.hidden_field :treatment_picture_cache %>
-  </div>
-  <div class="image">
-    <%= form.label :storage_picture, "保存用画像" %>
-    <%= form.file_field :storage_picture %>
-    <%= form.hidden_field :storage_picture_cache %>
-  </div>
-  <div>
-    <%= form.label :label, "自覚症状にチェックを入れて下さい" %>
-    <br/>
-    <div class="checkbox-inline">
-      <%= form_for @record do |f| %>
-        <%= f.collection_check_boxes(:label_ids, Label.where(detail: "カルテ"), :id, :name) do |b| %>
-          <%= b.label { b.check_box + b.text } %>
-          <br/>
-        <% end %>
-      <% end %>
+  <div id="center">
+    <div class="field">
+      <%= form.text_field :person_in_charge, placeholder:"施術者を入力" %><br/>
+      <%= form.text_area :comment, placeholder:"コメントを入力" %><br/>
+      <%= form.text_field :pain_a, placeholder:"一番痛いところを入力" %>
     </div>
-    <div class="actions">
-      <%= form.submit "作成" %>
+    <div class="image">
+      <%= form.label :expect_picture, "期待値画像" %>
+      <%= form.file_field :expect_picture %>
+      <%= form.hidden_field :expect_picture_cache %>
+    </div>
+    <div class="image">
+      <%= form.label :treatment_picture, "施術中画像" %>
+      <%= form.file_field :treatment_picture %>
+      <%= form.hidden_field :treatment_picture_cache %>
+    </div>
+    <div class="image">
+      <%= form.label :storage_picture, "保存用画像" %>
+      <%= form.file_field :storage_picture %>
+      <%= form.hidden_field :storage_picture_cache %>
+    </div>
+    <div>
+      <%= form.label :label, "自覚症状にチェックを入れて下さい" %>
+      <br/>
+      <div class="checkbox-inline">
+        <%= form_for @record do |f| %>
+          <%= f.collection_check_boxes(:label_ids, Label.where(detail: "カルテ"), :id, :name) do |b| %>
+            <%= b.label { b.check_box + b.text } %>
+            <br/>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="actions">
+        <%= form.submit "作成" %>
+      </div>
     </div>
   </div>
 

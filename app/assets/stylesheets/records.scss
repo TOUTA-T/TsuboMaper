@@ -1,7 +1,15 @@
 body{
+  width:100%;
+  text-align: center;
   margin-top: 60px;
   margin-left: 10px;
 }
+#center{
+  margin:auto;
+  // 見やすくするために背景色をおいている
+  background: #fff966;
+}
+
 h1{
   text-align: center;
 }

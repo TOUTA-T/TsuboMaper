@@ -7,6 +7,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
@@ -34,6 +36,8 @@
           <li><%= link_to "Login", user_session_path %></li>
         <% end %>
         <li><%= link_to "投稿する", new_record_path %></li>
+        <li><%= link_to "一時 duringへ飛ぶ", during_treatment_record_path(Record.last) %></li>
+        <li><%= link_to "一時 店舗TOPへ", storetop_records_path %></li>
       </ul>
     </div>
   </div>

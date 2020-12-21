@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_17_012626) do
+ActiveRecord::Schema.define(version: 2020_12_17_072856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,9 +42,9 @@ ActiveRecord::Schema.define(version: 2020_12_17_012626) do
   end
 
   create_table "records", force: :cascade do |t|
-    t.text "expect_picture", null: false
-    t.text "treatment_picture", null: false
-    t.text "storage_picture", null: false
+    t.text "expect_picture", default: "a", null: false
+    t.text "treatment_picture", default: "a", null: false
+    t.text "storage_picture", default: "a", null: false
     t.text "comment", null: false
     t.string "pain_a", default: "", null: false
     t.string "pain_b", default: "", null: false
