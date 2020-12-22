@@ -1,6 +1,6 @@
 class RecordsController < ApplicationController
-  before_action :set_record, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :set_record, only: [:show, :edit, :update, :destroy, :before_treatment, :during_treatment]
+  before_action :authenticate_user!, only: [:index, :edit, :update, :destroy]
 
   def index
     @records = Record.where(user_id:current_user.id)
@@ -8,21 +8,24 @@ class RecordsController < ApplicationController
 
   def new
     @record = Record.new
-    @record.user_id = current_user.id
+    @user = User.last.id
   end
 
   def edit
   end
 
+  def show
+  end
+
+
   def create
     @record = Record.new(record_params)
-    @record.user_id = current_user.id
+    @record.user_id = User.last.id
     if params[:back]
       render :new
     else
       if @record.save
-        # RecordMailer.record_mail(@record).deliver メール設定（仮）
-        redirect_to records_path, notice: "投稿されました！"
+        redirect_to before_treatment_record_path(@record), notice: "カルテが生成されました！"
       else
         render :new
       end
@@ -47,6 +50,22 @@ class RecordsController < ApplicationController
       format.html { redirect_to records_url, notice: '投稿を削除しました' }
       format.json { head :no_content }
     end
+  end
+
+  def before_treatment
+
+  end
+
+  def during_treatment
+    @comments = @record.comments
+    @comment = @record.comments.build
+  end
+
+  def storetop
+    @users = User.all
+      if params[:display_id].present?
+        @users = @users.where(display_id:params[:display_id])
+      end
   end
 
   private

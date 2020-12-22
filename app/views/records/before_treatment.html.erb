@@ -1,0 +1,8 @@
+
+
+<%= @record.user.display_id %>
+
+<div id="center">
+<%= image_tag('footspot_r.jpg', class:"footsopt", usemap:"#footspot", alt:"足つぼ図") %>
+
+<%= link_to '施術中に飛ぶ', during_treatment_record_path(@record) %>

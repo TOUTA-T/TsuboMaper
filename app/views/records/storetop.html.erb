@@ -1,0 +1,29 @@
+<h1>店トップページ</h1>
+<h2>施術へ</h2>
+<button type="button" class="btn btn-default btn-s"><%= link_to '新規顧客', new_user_registration_path %></button>
+<div class="search-form">
+  <%= form_with(url: new_record_path, method: :get, local: true) do |f| %>
+    <div class="field">
+      <%= f.label :display_id,"お客様IDを入力して下さい" %>
+      <%= f.number_field :display_id %>
+    </div>
+    <div class="actions">
+      <%= f.submit "既存客カルテを作成" %>
+    </div>
+  <% end %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |id| %>
+      <tr>
+        <td><%= id.display_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

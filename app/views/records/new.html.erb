@@ -1,3 +1,9 @@
 <h1>新規カルテ作成画面(仮)</h1>
-<p>とりあえず表示</p>
+
+<p>
+  <strong>お客様ID:</strong>
+  <!-- ちょっと無理やり -->
+  <%= User.last.display_id %>
+</p>
+
 <%= render 'form', record: @record %>
