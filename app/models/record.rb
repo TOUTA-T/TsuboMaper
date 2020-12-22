@@ -9,6 +9,7 @@ class Record < ApplicationRecord
   #できれば保存ファイルはそれぞれで分ける設定にしたい（低）
   has_many :favorites, dependent: :destroy
   has_many :users, through: :favorites
+  has_many :comments, dependent: :destroy
   belongs_to :user
   has_many :labellings, dependent: :destroy
   has_many :labels, through: :labellings

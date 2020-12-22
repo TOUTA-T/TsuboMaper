@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   }
   root'records#new'
   resources :records do
+    resources :comments
     collection do
       get :storetop
       post :storetop

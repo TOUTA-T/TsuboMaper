@@ -7,7 +7,6 @@ class RecordsController < ApplicationController
   end
 
   def new
-    # 新規顧客から来たのか、既存客から来たのか分けるchooseメソッド。受け取るuseridを確定させる
     @record = Record.new
     @user = User.last.id
   end
@@ -54,12 +53,12 @@ class RecordsController < ApplicationController
   end
 
   def before_treatment
-     # @record = Record.last
-    # 複数店舗で作成すると競合する恐れがあるので、変更推奨
+
   end
 
   def during_treatment
-
+    @comments = @record.comments
+    @comment = @record.comments.build
   end
 
   def storetop
