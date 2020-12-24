@@ -1,5 +1,7 @@
+<h1>カルテ表示ページ</h1>
+
 <p>
-  <strong>ID:</strong>
+  <strong>患者ID:</strong>
   <%= @record.user.display_id %>
 </p>
 
@@ -14,12 +16,7 @@
 </p>
 
 <p>
-  <strong>施術中画像:</strong>
-  <%= image_tag @record.treatment_picture.url %>
-</p>
-
-<p>
-  <strong>保存用画像(最終):</strong>
+  <strong>施術後画像:</strong>
   <%= image_tag @record.storage_picture.url %>
 </p>
 
@@ -30,5 +27,5 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_record_path(@record) %> |
-<%= link_to 'Back', records_path %>
+<%= link_to '編集する', edit_record_path(@record) %> |
+<%= link_to '店TOPへ', storetop_records_path %>

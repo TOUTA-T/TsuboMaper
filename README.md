@@ -50,10 +50,8 @@ https://docs.google.com/spreadsheets/d/19Yis-knWnZwFYbPVWXvuaW1r4YmiDOMdOrQJQj0b
 - 就業Termから２つ以上の技術
   - devise
     - 導入によるログインシステムの管理、IDの自動生成を行うなどのシステムを導入する
-  - AWS
-    - AWSへアップロードする
+  - コメント機能の実装
+    - カルテへのコメント機能をAjaxで実装する
 - カリキュラム外から１つ以上の技術
   - Imagemap
     - 画像の一部分をクリックすると、設定した部分に対応した処理を実行する
-  - html2canvas
-    -サイト内でスクリーンショットを撮って保存する技術を取り入れる(Map画像の取り込みなど)
