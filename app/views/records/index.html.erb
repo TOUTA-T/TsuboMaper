@@ -16,7 +16,7 @@
     <% @records.each do |r| %>
       <tr>
         <td><%= r.person_in_charge %></td>
-        <td><%= r.comment %></td>
+        <td><%= r.comments.content %></td>
         <td><%= image_tag r.expect_picture.url%></td>
         <td><%= image_tag r.treatment_picture.url%></td>
         <td><%= image_tag r.storage_picture.url%></td>
