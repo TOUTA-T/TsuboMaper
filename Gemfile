@@ -22,6 +22,7 @@ gem 'dotenv-rails'
 gem 'faker'
 gem 'pry-rails'
 gem 'kaminari'
+gem 'gon'
 
 group :development do
   gem 'letter_opener_web'

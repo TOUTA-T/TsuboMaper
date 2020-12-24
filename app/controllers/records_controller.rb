@@ -59,6 +59,7 @@ class RecordsController < ApplicationController
   def during_treatment
     @comments = @record.comments
     @comment = @record.comments.build
+    gon.tsubo = 'テストします'
   end
 
   def storetop
@@ -75,6 +76,6 @@ class RecordsController < ApplicationController
   end
 
   def record_params
-    params.require(:record).permit(:comment, :pain_a, :pain_b, :pain_c, :person_in_charge, :pain_level, :expect_picture, :expect_picture_cache, :treatment_picture, :treatment_picture_cache, :storage_picture, :storage_picture_cache, { label_ids: [] })
+    params.require(:record).permit(:content, :pain_a, :pain_b, :pain_c, :person_in_charge, :pain_level, :expect_picture, :expect_picture_cache, :treatment_picture, :treatment_picture_cache, :storage_picture, :storage_picture_cache, { label_ids: [] })
   end
 end
