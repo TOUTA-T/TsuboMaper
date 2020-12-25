@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :stores
-  devise_for :users, controllers: {
-    registrations: 'users/registrations',
-    passwords: "users/passwords"
+  devise_for :stores, controllers: {
+    sessions:      'stores/sessions',
+    passwords:     'stores/passwords',
+    registrations: 'stores/registrations'
   }
-  root'records#new'
+  devise_for :users, controllers: {
+    sessions:      'users/sessions',
+    passwords:     'users/passwords',
+    registrations: 'users/registrations'
+  }
+
+  root'records#storetop'
+
   resources :records do
     resources :comments
     collection do
