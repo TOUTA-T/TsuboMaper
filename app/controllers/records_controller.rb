@@ -1,9 +1,9 @@
 class RecordsController < ApplicationController
   before_action :set_record, only: [:show, :edit, :update, :destroy, :before_treatment, :during_treatment]
-  # before_action :authenticate_user!, only: [:index, :edit, :update, :destroy]
+  before_action :authenticate_store!, only: [:index, :edit, :update, :destroy]
 
   def index
-    @records = Record.where(user_id:current_user.id)
+    @records = Record.where(user_id:current_store.id)
   end
 
   def new

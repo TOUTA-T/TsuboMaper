@@ -8,6 +8,7 @@ class Record < ApplicationRecord
   has_many :users, through: :favorites
   has_many :comments, dependent: :destroy
   belongs_to :user
+  belongs_to :store
   has_many :labellings, dependent: :destroy
   has_many :labels, through: :labellings
   # 検索オプション

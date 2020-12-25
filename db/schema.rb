@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_22_060545) do
+ActiveRecord::Schema.define(version: 2020_12_25_085401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(version: 2020_12_22_060545) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "store_id"
+    t.index ["store_id"], name: "index_records_on_store_id"
     t.index ["user_id"], name: "index_records_on_user_id"
   end
 
@@ -99,5 +101,6 @@ ActiveRecord::Schema.define(version: 2020_12_22_060545) do
   add_foreign_key "favorites", "users"
   add_foreign_key "labellings", "labels"
   add_foreign_key "labellings", "records"
+  add_foreign_key "records", "stores"
   add_foreign_key "records", "users"
 end
