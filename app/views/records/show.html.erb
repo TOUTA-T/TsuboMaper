@@ -1,31 +1,43 @@
 <h1>カルテ表示ページ</h1>
 
 <p>
-  <strong>患者ID:</strong>
+  <h3>お客様ID：<%= @record.user.display_id %></h3>
   <%= @record.user.display_id %>
 </p>
 
 <p>
   <strong>コメント:</strong>
-  <%= @record.comment %>
+  <% @comments.each do |comment| %>
+    <% if comment.id.present? %>
+      <li>
+        <div class="comment-content" id ="this_comment_<%= comment.id %>"></div>
+        <p><%= comment.content %></p>
+      </li>
+    <% end %>
+  <% end %>
 </p>
 
 <p>
   <strong>痛みMAP:</strong>
-  <%= image_tag @record.expect_picture.url %>
+  <!-- 本来は作成され、保存されたexpect_picture.urlが表示・現在は作成された仮画像を表示 -->
+  <%# = image_tag @record.expect_picture.url %>
+  <%= image_tag('painmap.gif') %>
 </p>
 
 <p>
   <strong>施術後画像:</strong>
-  <%= image_tag @record.storage_picture.url %>
+  <!-- 本来は作成され、保存されたstorage_pictureが表示・現在は作成された仮画像を表示 -->
+  <%#= image_tag @record.storage_picture.url %>
+  <%= image_tag('footspot_仮.jpg') %>
 </p>
 
 <p>
-  <strong>自覚症状</strong>
+  <strong>施術前の自覚症状一覧</strong>
   <% @record.labels.each do |l| %>
     ：<%= l.name %>
   <% end %>
 </p>
 
-<%= link_to '編集する', edit_record_path(@record) %> |
+<!-- 機能的に編集はいらないが、採点のために残す -->
+<%= link_to "コメント編集", edit_record_comment_path(@record, @comments), remote: true %>　|
 <%= link_to '店TOPへ', storetop_records_path %>

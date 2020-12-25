@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_record, only: [:create, :edit, :update]
   # コメントを保存、投稿するためのアクション
   def create
+    @record = Record.find(params[:record_id])
     @comment = @record.comments.build(comment_params)
     respond_to do |format|
       if @comment.save

@@ -1,6 +1,6 @@
 class RecordsController < ApplicationController
   before_action :set_record, only: [:show, :edit, :update, :destroy, :before_treatment, :during_treatment]
-  before_action :authenticate_user!, only: [:index, :edit, :update, :destroy]
+  # before_action :authenticate_user!, only: [:index, :edit, :update, :destroy]
 
   def index
     @records = Record.where(user_id:current_user.id)
@@ -15,6 +15,8 @@ class RecordsController < ApplicationController
   end
 
   def show
+    @comments = @record.comments
+    @comment = @record.comments.build
   end
 
 
@@ -59,7 +61,6 @@ class RecordsController < ApplicationController
   def during_treatment
     @comments = @record.comments
     @comment = @record.comments.build
-    gon.tsubo = 'テストします'
   end
 
   def storetop
@@ -76,6 +77,6 @@ class RecordsController < ApplicationController
   end
 
   def record_params
-    params.require(:record).permit(:content, :pain_a, :pain_b, :pain_c, :person_in_charge, :pain_level, :expect_picture, :expect_picture_cache, :treatment_picture, :treatment_picture_cache, :storage_picture, :storage_picture_cache, { label_ids: [] })
+    params.require(:record).permit(:comment, :pain_a, :pain_b, :pain_c, :person_in_charge, :pain_level, :expect_picture, :expect_picture_cache, :treatment_picture, :treatment_picture_cache, :storage_picture, :storage_picture_cache, { label_ids: [] })
   end
 end

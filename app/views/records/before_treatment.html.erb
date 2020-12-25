@@ -1,8 +1,10 @@
-
-
-<%= @record.user.display_id %>
+<h3>患者ID：<%= @record.user.display_id %></h3>
 
 <div id="center">
-<%= image_tag('footspot_r.jpg', class:"footsopt", usemap:"#footspot", alt:"足つぼ図") %>
+  <!-- 本来は事前カルテでチェックされた症状のところにチェックが付いたものを表示（expect_picture） -->
+  <%= image_tag('painmap.gif') %>
+</div>
 
-<%= link_to '施術中に飛ぶ', during_treatment_record_path(@record) %>
+<div class="btn btn-default">
+  <%= link_to '施術中に飛ぶ', during_treatment_record_path(@record) %>
+</div>

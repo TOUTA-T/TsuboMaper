@@ -1,120 +1,116 @@
-<a>during 表示</a>
+  <h3>お客様ID：<%= @record.user.display_id %></h3>
 
-<div class="container=fluid">
-  <div class="row">
-    <div class="col-sm-3">
-      col3
-      <!-- image = Magick::Image.read('footspot_r.jpg').first
-      image = image.resize_to_fit(150, 150)
-      image.write('footspot_map.jpg')
-      <%#= image_tag('footsopt_map.jpg', class:"map") %> -->
-    </div>
-    <div class="col-sm-6">
-      col6
-    </div>
-
-    <div id="center" class="col-sm-9">
-      <%= image_tag('footspot_r.jpg', class:"footsopt", usemap:"#footspot", alt:"足つぼ図") %>
-      <map name="footspot" id="footspot">
-      <area class="副鼻腔" shape="circle" coords="305,20,19" href="javascript:test1()" alt="副鼻腔" />
-      <area class="副鼻腔" shape="poly" coords="334,35,366,49,387,59,391,76,419,91,421,103,445,107,451,138,418,135,407,119,385,113,376,93,355,88,321,74,321,74,321,74" href="#" alt="副鼻腔" />
-      <area class="目" shape="circle" coords="335,100,17" href="#" alt="右目 左" />
-      <area class="目" shape="circle" coords="367,109,15" href="#" alt="右目 右" />
-      <area class="耳" shape="circle" coords="398,127,12" href="#" alt="右耳 左" />
-      <area class="耳" shape="circle" coords="432,156,15" href="#" alt="右耳 右" />
-      <area class="頭" shape="circle" coords="285,71,35" href="#" alt="頭" id="test" />
-      <area class="首" shape="rect" coords="244,109,305,148" href="#" alt="首" />
-      <area class="甲状腺" shape="rect" coords="234,149,298,207" href="#" alt="甲状腺" />
-      <area class="心臓" shape="rect" coords="241,210,304,239" href="#" alt="心臓 胃の上" />
-      <area class="胃" shape="rect" coords="254,238,322,298" href="#" alt="胃" />
-      <area class="リンパ腺" shape="poly" coords="306,113,321,113,409,141,412,164,308,117,308,117,308,117" href="#" alt="リンパ腺" />
-      <area class="僧帽筋" shape="poly" coords="321,135,348,134,414,167,418,177,323,156,323,156" href="#" alt="僧帽筋" />
-      <area class="肺" shape="poly" coords="324,158,416,177,423,199,398,198,361,188,349,196,324,191,323,191" href="#" alt="左肺" />
-      <area class="心臓" shape="circle" coords="381,234,37" href="#" alt="心臓" />
-      <area class="食道" shape="rect" coords="304,123,317,228" href="#" alt="食道" />
-      <area class="気管" shape="circle" coords="331,216,13" href="#" alt="左気管" />
-      <area class="肩" shape="circle" coords="436,192,17" href="#" alt="肩" />
-      <area class="副腎" shape="circle" coords="354,276,12" href="#" alt="副腎" />
-      <area class="腎臓" shape="circle" coords="364,307,19" href="#" alt="腎臓" />
-      <area class="脾臓" shape="circle" coords="400,300,16" href="#" alt="脾臓" />
-      <area class="膵臓" shape="rect" coords="269,301,338,320" href="#" alt="膵臓" />
-      <area class="腸" shape="rect" coords="275,322,324,346" href="#" alt="十二指腸" />
-      <area class="腸" shape="poly" coords="273,352,336,346,386,328,389,344,341,356,275,370,275,370" href="#" alt="横行結腸" />
-      <area class="腸" shape="rect" coords="386,341,400,432" href="#" alt="下行結腸" />
-      <area class="腸" shape="rect" coords="309,414,378,435" href="#" alt="直腸" />
-      <area class="腸" shape="rect" coords="338,362,378,414" href="#" alt="小腸" />
-      <area class="尿管" shape="poly" coords="343,314,353,326,333,377,304,411,294,414,297,401,329,365,344,316,344,316" href="#" alt="尿管" />
-      <area class="膀胱" shape="circle" coords="283,400,17" href="#" alt="膀胱" />
-      <area class="仙骨" shape="circle" coords="290,443,20" href="#" alt="仙骨" />
-      <area class="生殖器" shape="circle" coords="348,489,47" href="#" alt="左生殖器" />
-      <area class="膝" shape="rect" coords="399,408,416,467" href="#" alt="膝" />
-      <area class="腰" shape="rect" coords="421,233,441,402" href="#" alt="腰" />
-      <!-- ココから右足 -->
-      <area class="副鼻腔" shape="circle" coords="151,22,20" href="#" alt="副鼻腔" />
-      <area class="副鼻腔" shape="poly" coords="117,39,94,43,65,69,65,85,35,97,35,107,11,110,6,133,49,125,69,121,99,97,133,75,133,75" href="#" alt="副鼻腔" />
-      <area class="頭" shape="circle" coords="170,78,39" href="#" alt="頭" />
-      <area class="目" shape="circle" coords="121,107,13" href="#" alt="左目　右" />
-      <area class="目" shape="circle" coords="91,116,13" href="#" alt="左目　左" />
-      <area class="耳" shape="circle" coords="59,135,13" href="#" alt="左耳　右" />
-      <area class="耳" shape="circle" coords="27,149,14" href="#" alt="左耳　左" />
-      <area class="肩" shape="circle" coords="20,191,18" href="#" alt="肩" />
-      <area class="首" shape="rect" coords="151,117,217,150" href="#" alt="首" />
-      <area class="甲状腺" shape="rect" coords="159,159,222,208" href="#" alt="甲状腺" />
-      <area class="胃" shape="rect" coords="151,220,200,281" href="#" alt="胃" />
-      <area class="膵臓" shape="rect" coords="149,290,191,310" href="#" alt="膵臓" />
-      <area class="腸" shape="rect" coords="131,310,186,346" href="#" alt="十二指腸" />
-      <area class="リンパ腺" shape="poly" coords="40,154,79,134,111,122,143,118,147,132,63,158,40,170,40,170" href="#" alt="リンパ腺" />
-      <area class="僧帽筋" shape="poly" coords="38,171,74,155,127,140,131,154,43,177,43,177" href="#" alt="僧帽筋" />
-      <area class="肺" shape="poly" coords="40,180,75,169,131,160,134,196,76,208,38,205,38,206" href="#" alt="右肺" />
-      <area class="食道" shape="rect" coords="137,140,151,218" href="#" alt="食道" />
-      <area class="気管" shape="circle" coords="121,225,16" href="#" alt="右気管" />
-      <area class="肝臓" shape="circle" coords="75,243,32" href="#" alt="肝臓" />
-      <area class="副腎" shape="circle" coords="106,279,13" href="#" alt="副腎" />
-      <area class="胆嚢" shape="circle" coords="70,290,14" href="#" alt="胆嚢" />
-      <area class="腎臓" shape="circle" coords="92,313,16" href="#" alt="腎臓" />
-      <area class="腸" shape="poly" coords="59,328,91,338,179,356,179,371,77,352,62,345,65,351" href="#" alt="横行結腸" />
-      <area class="腸" shape="rect" coords="54,347,73,420" href="#" alt="上行結腸" />
-      <area class="腸" shape="rect" coords="79,372,115,412" href="#" alt="小腸" />
-      <area class="腸" shape="circle" coords="89,427,13" href="#" alt="盲腸" />
-      <area class="膀胱" shape="circle" coords="170,401,14" href="#" alt="膀胱" />
-      <area class="仙骨" shape="circle" coords="169,448,17" href="#" alt="仙骨" />
-      <area class="尿管" shape="poly" coords="109,315,99,329,113,365,129,395,156,414,151,403,120,363,109,321,109,321" href="#" alt="尿管" />
-      <area class="膝" shape="circle" coords="46,440,14" href="#" alt="膝" />
-      <area class="生殖器" shape="circle" coords="108,493,46" href="#" alt="右生殖器" />
-      <area class="腰" shape="rect" coords="11,246,31,397" href="#" alt="腰" />
-      </map>
-    </div>
-
-    <div class="col-sm-6">
-      <p>コメント記入欄</p>
-      <div id="comments_area">
-        <%= render partial: 'comments/index', locals: { comments: @comments, record: @record } %>
+  <div class="container=fluid">
+    <div class="row">
+      <div class="col-sm-3">
+        col3
+        <!-- image = Magick::Image.read('footspot_r.jpg').first
+        image = image.resize_to_fit(150, 150)
+        image.write('footspot_map.jpg')
+        <%#= image_tag('footsopt_map.jpg', class:"map") %> -->
       </div>
-      <%= render partial: 'comments/form', locals: { comment: @comment, record: @record } %>
-    </div>
+      <div class="col-sm-6">
+        col6
+      </div>
 
-    <div class="col-sm-6">
-      <!-- 予定：ajaxを使って更新ボタンを押すとランキングがソート、paina,b,cにそれぞれ症状が入力される。 -->
-      <p>痛みランキング表示欄</p>
-      <div id="pain_area">
-        <div id ="pain_a">1:【
-          <%= @record.pain_a %>】:押した回数 1
+      <div id="center" class="col-sm-9">
+        <%= image_tag('footspot_r.jpg', class:"footsopt", usemap:"#footspot", alt:"足つぼ図") %>
+        <map name="footspot" id="footspot">
+        <area class="副鼻腔" shape="circle" coords="305,20,19" href="javascript:test1()" alt="副鼻腔" />
+        <area class="副鼻腔" shape="poly" coords="334,35,366,49,387,59,391,76,419,91,421,103,445,107,451,138,418,135,407,119,385,113,376,93,355,88,321,74,321,74,321,74" href="#" alt="副鼻腔" />
+        <area class="目" shape="circle" coords="335,100,17" href="#" alt="右目 左" />
+        <area class="目" shape="circle" coords="367,109,15" href="#" alt="右目 右" />
+        <area class="耳" shape="circle" coords="398,127,12" href="#" alt="右耳 左" />
+        <area class="耳" shape="circle" coords="432,156,15" href="#" alt="右耳 右" />
+        <area class="頭" shape="circle" coords="285,71,35" href="#" alt="頭" id="test" />
+        <area class="首" shape="rect" coords="244,109,305,148" href="#" alt="首" />
+        <area class="甲状腺" shape="rect" coords="234,149,298,207" href="#" alt="甲状腺" />
+        <area class="心臓" shape="rect" coords="241,210,304,239" href="#" alt="心臓 胃の上" />
+        <area class="胃" shape="rect" coords="254,238,322,298" href="#" alt="胃" />
+        <area class="リンパ腺" shape="poly" coords="306,113,321,113,409,141,412,164,308,117,308,117,308,117" href="#" alt="リンパ腺" />
+        <area class="僧帽筋" shape="poly" coords="321,135,348,134,414,167,418,177,323,156,323,156" href="#" alt="僧帽筋" />
+        <area class="肺" shape="poly" coords="324,158,416,177,423,199,398,198,361,188,349,196,324,191,323,191" href="#" alt="左肺" />
+        <area class="心臓" shape="circle" coords="381,234,37" href="#" alt="心臓" />
+        <area class="食道" shape="rect" coords="304,123,317,228" href="#" alt="食道" />
+        <area class="気管" shape="circle" coords="331,216,13" href="#" alt="左気管" />
+        <area class="肩" shape="circle" coords="436,192,17" href="#" alt="肩" />
+        <area class="副腎" shape="circle" coords="354,276,12" href="#" alt="副腎" />
+        <area class="腎臓" shape="circle" coords="364,307,19" href="#" alt="腎臓" />
+        <area class="脾臓" shape="circle" coords="400,300,16" href="#" alt="脾臓" />
+        <area class="膵臓" shape="rect" coords="269,301,338,320" href="#" alt="膵臓" />
+        <area class="腸" shape="rect" coords="275,322,324,346" href="#" alt="十二指腸" />
+        <area class="腸" shape="poly" coords="273,352,336,346,386,328,389,344,341,356,275,370,275,370" href="#" alt="横行結腸" />
+        <area class="腸" shape="rect" coords="386,341,400,432" href="#" alt="下行結腸" />
+        <area class="腸" shape="rect" coords="309,414,378,435" href="#" alt="直腸" />
+        <area class="腸" shape="rect" coords="338,362,378,414" href="#" alt="小腸" />
+        <area class="尿管" shape="poly" coords="343,314,353,326,333,377,304,411,294,414,297,401,329,365,344,316,344,316" href="#" alt="尿管" />
+        <area class="膀胱" shape="circle" coords="283,400,17" href="#" alt="膀胱" />
+        <area class="仙骨" shape="circle" coords="290,443,20" href="#" alt="仙骨" />
+        <area class="生殖器" shape="circle" coords="348,489,47" href="#" alt="左生殖器" />
+        <area class="膝" shape="rect" coords="399,408,416,467" href="#" alt="膝" />
+        <area class="腰" shape="rect" coords="421,233,441,402" href="#" alt="腰" />
+        <!-- ココから右足 -->
+        <area class="副鼻腔" shape="circle" coords="151,22,20" href="#" alt="副鼻腔" />
+        <area class="副鼻腔" shape="poly" coords="117,39,94,43,65,69,65,85,35,97,35,107,11,110,6,133,49,125,69,121,99,97,133,75,133,75" href="#" alt="副鼻腔" />
+        <area class="頭" shape="circle" coords="170,78,39" href="#" alt="頭" />
+        <area class="目" shape="circle" coords="121,107,13" href="#" alt="左目　右" />
+        <area class="目" shape="circle" coords="91,116,13" href="#" alt="左目　左" />
+        <area class="耳" shape="circle" coords="59,135,13" href="#" alt="左耳　右" />
+        <area class="耳" shape="circle" coords="27,149,14" href="#" alt="左耳　左" />
+        <area class="肩" shape="circle" coords="20,191,18" href="#" alt="肩" />
+        <area class="首" shape="rect" coords="151,117,217,150" href="#" alt="首" />
+        <area class="甲状腺" shape="rect" coords="159,159,222,208" href="#" alt="甲状腺" />
+        <area class="胃" shape="rect" coords="151,220,200,281" href="#" alt="胃" />
+        <area class="膵臓" shape="rect" coords="149,290,191,310" href="#" alt="膵臓" />
+        <area class="腸" shape="rect" coords="131,310,186,346" href="#" alt="十二指腸" />
+        <area class="リンパ腺" shape="poly" coords="40,154,79,134,111,122,143,118,147,132,63,158,40,170,40,170" href="#" alt="リンパ腺" />
+        <area class="僧帽筋" shape="poly" coords="38,171,74,155,127,140,131,154,43,177,43,177" href="#" alt="僧帽筋" />
+        <area class="肺" shape="poly" coords="40,180,75,169,131,160,134,196,76,208,38,205,38,206" href="#" alt="右肺" />
+        <area class="食道" shape="rect" coords="137,140,151,218" href="#" alt="食道" />
+        <area class="気管" shape="circle" coords="121,225,16" href="#" alt="右気管" />
+        <area class="肝臓" shape="circle" coords="75,243,32" href="#" alt="肝臓" />
+        <area class="副腎" shape="circle" coords="106,279,13" href="#" alt="副腎" />
+        <area class="胆嚢" shape="circle" coords="70,290,14" href="#" alt="胆嚢" />
+        <area class="腎臓" shape="circle" coords="92,313,16" href="#" alt="腎臓" />
+        <area class="腸" shape="poly" coords="59,328,91,338,179,356,179,371,77,352,62,345,65,351" href="#" alt="横行結腸" />
+        <area class="腸" shape="rect" coords="54,347,73,420" href="#" alt="上行結腸" />
+        <area class="腸" shape="rect" coords="79,372,115,412" href="#" alt="小腸" />
+        <area class="腸" shape="circle" coords="89,427,13" href="#" alt="盲腸" />
+        <area class="膀胱" shape="circle" coords="170,401,14" href="#" alt="膀胱" />
+        <area class="仙骨" shape="circle" coords="169,448,17" href="#" alt="仙骨" />
+        <area class="尿管" shape="poly" coords="109,315,99,329,113,365,129,395,156,414,151,403,120,363,109,321,109,321" href="#" alt="尿管" />
+        <area class="膝" shape="circle" coords="46,440,14" href="#" alt="膝" />
+        <area class="生殖器" shape="circle" coords="108,493,46" href="#" alt="右生殖器" />
+        <area class="腰" shape="rect" coords="11,246,31,397" href="#" alt="腰" />
+        </map>
+      </div>
+
+      <div class="col-sm-6">
+        <p>コメント記入欄</p>
+        <div id="comments_area">
+          <%= render partial: 'comments/index', locals: { comments: @comments, record: @record } %>
         </div>
-        <div id="pain_b">2:【
-          <%= @record.pain_b %>】:押した回数 1
-        </div>
-        <div id="pain_c">3:【
-          <%= @record.pain_c %>】:押した回数 1
+        <%= render partial: 'comments/form', locals: { comment: @comment, record: @record } %>
+      </div>
+
+      <div class="col-sm-6">
+        <!-- 予定：ajaxを使って更新ボタンを押すとランキングがソート、paina,b,cにそれぞれ症状が入力される。 -->
+        <p>痛みランキング表示欄</p>
+        <div id="pain_area">
+          <div id ="pain_a">1:【
+            <%= @record.pain_a %>】:押した回数 1
+          </div>
+          <div id="pain_b">2:【
+            <%= @record.pain_b %>】:押した回数 1
+          </div>
+          <div id="pain_c">3:【
+            <%= @record.pain_c %>】:押した回数 1
+          </div>
+
         </div>
       </div>
     </div>
-
-    <!-- カルテを（上書き）保存する。できれば店パスワード機能を入れなければ保存できないようにしたい -->
-    <submit >
-
-
-
-
-
   </div>
-</div>
+<!-- カルテを（上書き）保存したかった。できれば店パスワード機能を入れなければ保存できないようにしたい
+      今はとりあえず現在の情報を持ってshowに飛ばすことを優先する-->
+<%= link_to 'カルテ画面へ', record_path(@record) %>

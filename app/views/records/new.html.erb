@@ -1,9 +1,9 @@
 <h1>新規カルテ作成画面(仮)</h1>
 
 <p>
-  <strong>お客様ID:</strong>
+  <h3>患者ID：
   <!-- ちょっと無理やり -->
-  <%= User.last.display_id %>
+  <%= User.last.display_id %></h3>
 </p>
 
 <%= render 'form', record: @record %>
