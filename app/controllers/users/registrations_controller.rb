@@ -13,10 +13,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     generated_password = Devise.friendly_token.first(6)
     random = format("%0#{5}d", SecureRandom.random_number(10**5))
-    user = User.create!(email: params[:user][:email], password: generated_password, display_id: random)
+    @user = User.new(email: params[:user][:email], password: generated_password, display_id: random)
+    if @user.save
+      redirect_to new_record_path, notice: '新規メールアドレスを登録しました！'
+    else
+      redirect_to new_user_registration_path, notice: '同じメールアドレスは登録できません'
+    end
     # ユーザー新規作成時にメールが飛ぶ（開発環境下ではOK,本番環境ではみじっそうのため、一旦コメントアウト）
     # RegistrationMailer.welcome(user, generated_password).deliver
-    redirect_to new_record_path
   end
 
   # GET /resource/edit

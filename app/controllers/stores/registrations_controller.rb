@@ -12,14 +12,6 @@ class Stores::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    # @store = Store.new(configure_sign_up_params)
-    # binding.pry
-    # if @store.save
-    #   # bypass_sign_in(store_params)
-    #   redirect_to storetop_records_path, notice: "店舗の登録が完了しました"
-    # else
-    #   render :new
-    # end
   end
 
   # GET /resource/edit
