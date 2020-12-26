@@ -13,7 +13,11 @@ class RecordsController < ApplicationController
   def new
     @record = Record.new
     if params[:display_id].present?
-      @user = User.find_by(display_id:params[:display_id])
+      if User.find_by(display_id:params[:display_id]).nil?
+        redirect_to storetop_records_path, notice: 'そのIDのお客様はまだいません'
+      else
+        @user = User.find_by(display_id:params[:display_id])
+      end
     else
       @user = User.last
     end
@@ -35,7 +39,7 @@ class RecordsController < ApplicationController
       if @record.save
         redirect_to before_treatment_record_path(@record), notice: "カルテが生成されました！"
       else
-        render :new
+        redirect_to new_record_path, notice: '施術者名を入力して下さい'
       end
   end
 

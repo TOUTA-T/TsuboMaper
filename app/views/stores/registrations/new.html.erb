@@ -1,4 +1,4 @@
-<h2>新規店舗登録<%= t('.sign_up') %></h2>
+<h2>新規店舗<%= t('.sign_up') %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -9,15 +9,15 @@
   </div>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, t('.name') %><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "店舗名" %>
   </div>
   <div class="field">
-    <%= f.label :representative_name %><br />
+    <%= f.label :representative_name, t('.representative_name') %><br />
     <%= f.text_field :representative_name, autofocus: true, autocomplete: "代表者名" %>
   </div>
   <div class="field">
-    <%= f.label :tel %><br />
+    <%= f.label :tel, t(".tel") %><br />
     <%= f.telephone_field :tel, autofocus: true, autocomplete: "電話番号" %>
   </div>
 

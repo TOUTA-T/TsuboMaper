@@ -7,6 +7,12 @@ ja:
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
+      store:
+        current_password: "現在のパスワード"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        remember_me: "ログインを記憶"
     models:
       user: "ユーザ"
   users:
@@ -106,6 +112,9 @@ ja:
         we_need_your_current_password_to_confirm_your_changes: "変更を反映するには現在のパスワードを入力してください"
       new:
         sign_up: "アカウント登録"
+        name: "店舗名を入力(必須)"
+        representative_name: "代表者名を入力(必須)"
+        tel: "電話番号を入力(必須)"
     sessions:
       new:
         sign_in: "ログイン"
