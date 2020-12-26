@@ -13,7 +13,6 @@
   <div id="center">
     <div class="field">
       <%= form.text_field :person_in_charge, placeholder:"施術者を入力" %><br/>
-      <%= form.text_field :pain_a, placeholder:"一番調子が悪いと思うところを入力" %>
     </div>
 
     <div>
@@ -21,6 +20,9 @@
       <br/>
       <div class="checkbox-inline">
         <%= form_for @record do |f| %>
+        <% if @user.present?%>
+          <%= hidden_field_tag :user_id, @user.to_a[0].id %>
+        <% end %>
           <%= f.collection_check_boxes(:label_ids, Label.where(detail: "カルテ"), :id, :name) do |b| %>
             <%= b.label { b.check_box + b.text } %>
             <br/>

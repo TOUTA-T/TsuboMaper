@@ -1,9 +1,8 @@
-<h1>新規カルテ作成画面(仮)</h1>
+<h1>新規カルテ作成画面</h1>
 
 <p>
-  <h3>患者ID：
-  <!-- ちょっと無理やり -->
-  <%= User.last.display_id %></h3>
+  <h3>お客様ID：
+  <%= @user.to_a[0].display_id %></h3>
+  <!-- to_aが必要な理由はわからないが調べたら出た -->
 </p>
-
 <%= render 'form', record: @record %>

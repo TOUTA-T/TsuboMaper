@@ -11,7 +11,6 @@ class Stores::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    super
     if params[:back]
       render :new
     else

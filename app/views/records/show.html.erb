@@ -12,6 +12,7 @@
       <h3>お客様ID：<%= @record.user.display_id %></h3>
       <h4>作成日時: <%= @record.created_at.to_s %></h4>
       <h4>施術者: <%= @record.person_in_charge %></h4>
+      <h4>施術店舗:<%= @record.store.name %></h4>
       <div class="panel panel-success">
         <div class="panel-heading">
           施術前の自覚症状一覧

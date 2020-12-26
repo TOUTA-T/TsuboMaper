@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 #カルテ表示ラベル
 Label.create(name:"頭痛", detail:"カルテ")
 Label.create(name:"目の疲れ", detail:"カルテ")
@@ -15,7 +7,7 @@ Label.create(name:"疲れ", detail:"カルテ")
 Label.create(name:"便秘", detail:"カルテ")
 Label.create(name:"胃が重い", detail:"カルテ")
 Label.create(name:"その他", detail:"カルテ")
-#ツボ一覧
+#ツボ一覧 今使ってない
 Label.create(name:"頭")
 Label.create(name:"副鼻腔")
 Label.create(name:"脳下垂体")
@@ -42,3 +34,7 @@ Label.create(name:"仙骨")
 Label.create(name:"膝")
 Label.create(name:"生殖器")
 Label.create(name:"坐骨神経")
+
+# ゲストユーザー、店舗作成
+User.create!(email: 'test@test.com', display_id:12345, password: 'password', confirmed_at: Time.now)
+User.create!(email: 'test@test.com', name: '店舗A', :representative_name: '代表　者名', password: 'password', confirmed_at: Time.now)

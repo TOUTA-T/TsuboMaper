@@ -1,29 +1,44 @@
 <h1>店トップページ</h1>
-<h2>施術へ</h2>
-<button type="button" class="btn btn-default btn-s"><%= link_to '新規顧客', new_user_registration_path %></button>
-<div class="search-form">
-  <%= form_with(url: new_record_path, method: :get, local: true) do |f| %>
-    <div class="field">
-      <%= f.label :display_id,"お客様IDを入力して下さい" %>
-      <%= f.number_field :display_id %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <h2>施術へ</h2>
     </div>
-    <div class="actions">
-      <%= f.submit "既存客カルテを作成" %>
+    <div class="panel-body">
+      <div class="col-sm-6">
+        <button type="button" class="btn btn-default btn-s"><%= link_to '新規顧客', new_user_registration_path %></button>
+      </div>
+      <div class="col-sm-6">
+        <div class="search-form">
+          <%= form_with(url: new_record_path, method: :get, local: true) do |f| %>
+          <div class="field">
+            <%= f.label :display_id,"お客様IDを入力して下さい" %><br>
+            <%= f.number_field :display_id %>
+          </div>
+        <div class="actions">
+          <%= f.submit "既存客カルテを作成" %>
+        </div>
+        <% end %>
+      </div>
+      </div>
     </div>
-  <% end %>
-</div>
+  </div>
+
+<%= link_to 'カルテ一覧へ', records_path, class: "btn btn-default btn-lg btn-block" %>
+<%= link_to '店舗情報変更へ', edit_store_registration_path(current_store.id), class: "btn btn-default btn-lg btn-block" %>
+<%= link_to 'ログアウト', destroy_store_session_path, method: :delete, class: "btn btn-default btn-lg btn-block" %>
 
 <table>
   <thead>
     <tr>
-      <th>ID</th>
+      <th>既存客ID一覧(今後店舗につながるuserのみを紹介するようにする)</th>
     </tr>
   </thead>
   <tbody>
-    <% @users.each do |id| %>
-      <tr>
-        <td><%= id.display_id %></td>
-      </tr>
-    <% end %>
+      <% @users.each do |id| %>
+        <tr>
+          <td><%= id.display_id %></td>
+        </tr>
+      <% end %>
   </tbody>
 </table>
