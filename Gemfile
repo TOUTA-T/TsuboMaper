@@ -23,6 +23,8 @@ gem 'faker'
 gem 'pry-rails'
 gem 'kaminari'
 gem 'gon'
+gem 'rails-i18n'
+gem 'devise-i18n-views'
 
 group :development do
   gem 'letter_opener_web'

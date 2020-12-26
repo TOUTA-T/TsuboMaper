@@ -1,0 +1,35 @@
+ja:
+  activerecord:
+    models:
+      comments: コメント
+      favorites: お気に入り
+      labellings: ラベリング
+      labels: 症状ラベル
+      records: カルテ
+      stores: 店舗
+      users: ユーザー
+    attributes:
+      comments:
+        content: 内容
+      labels:
+        detail: 詳細・クラス
+        name: 名前
+      records:
+        expect_picture: Map画像
+        treatment_picture: 施術中画像
+        storage_picture: 保存用画像
+        pain_a: １番痛い箇所
+        pain_b: ２番めに痛い箇所
+        pain_c: ３番めに痛い箇所
+        person_in_charge: 施術者
+        pain_level: 痛みレベル
+      stores:
+        email: 店舗メールアドレス
+        name: 店舗名
+        representative_name: 代表者名
+        tel: 電話番号
+        payment: 支払情報
+      users:
+        email: ユーザーメールアドレス
+        display_id: 表示ID
+        admin: 管理者
