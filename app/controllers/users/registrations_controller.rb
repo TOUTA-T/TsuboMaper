@@ -14,7 +14,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     generated_password = Devise.friendly_token.first(6)
     random = format("%0#{5}d", SecureRandom.random_number(10**5))
     user = User.create!(email: params[:user][:email], password: generated_password, display_id: random)
-    RegistrationMailer.welcome(user, generated_password).deliver
+    # ユーザー新規作成時にメールが飛ぶ（開発環境下ではOK,本番環境ではみじっそうのため、一旦コメントアウト）
+    # RegistrationMailer.welcome(user, generated_password).deliver
     redirect_to new_record_path
   end
 
