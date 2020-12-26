@@ -27,21 +27,19 @@
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <!-- 後で消す -->
-        <li><%= link_to '投稿一覧', records_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to "ユーザLogout", destroy_user_session_path, method: :delete %></li>
           <li><%= link_to '管理ページへ', '#' %></li>
           <% elsif store_signed_in? %>
+            <li><%= link_to "店舗TOPへ", storetop_records_path %></li>
             <li><%= link_to "店舗編集ページへ", edit_store_registration_path(current_store.id) %></li>
             <li><%= link_to "Logout", destroy_store_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "新規店舗登録", new_store_registration_path %></li>
           <li><%= link_to "ユーザーログイン", user_session_path %></li>
-          <!-- new? -->
           <li><%= link_to "店舗ログイン", store_session_path %></li>
         <% end %>
-          <li><%= link_to "店舗TOPへ", storetop_records_path %></li>
+
       </ul>
     </div>
   </div>

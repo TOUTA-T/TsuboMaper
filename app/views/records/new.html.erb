@@ -2,7 +2,7 @@
 
 <p>
   <h3>お客様ID：
-  <%= @user.to_a[0].display_id %></h3>
-  <!-- to_aが必要な理由はわからないが調べたら出た -->
+  <%= @user.display_id %></h3>
+  <!-- @user.to_a[0].display_id  to_aは配列の番号を指定するので最初にヒットしたのが出る -->
 </p>
 <%= render 'form', record: @record %>

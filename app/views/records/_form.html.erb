@@ -21,7 +21,7 @@
       <div class="checkbox-inline">
         <%= form_for @record do |f| %>
         <% if @user.present?%>
-          <%= hidden_field_tag :user_id, @user.to_a[0].id %>
+          <%= hidden_field_tag :user_id, @user.id %>
         <% end %>
           <%= f.collection_check_boxes(:label_ids, Label.where(detail: "カルテ"), :id, :name) do |b| %>
             <%= b.label { b.check_box + b.text } %>

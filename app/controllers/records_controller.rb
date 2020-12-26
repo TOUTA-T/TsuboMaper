@@ -13,7 +13,7 @@ class RecordsController < ApplicationController
   def new
     @record = Record.new
     if params[:display_id].present?
-      @user = User.where(display_id:params[:display_id])
+      @user = User.find_by(display_id:params[:display_id])
     else
       @user = User.last
     end
