@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :label do
-    name { "MyString" }
-    detail { "MyText" }
+    name { "頭痛" }
+    detail { "カルテ" }
   end
 end
