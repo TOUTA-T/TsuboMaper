@@ -11,15 +11,15 @@ class Stores::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    if params[:back]
-      render :new
-    else
-      if Store.new(store_params).save
-        redirect_to storetop_records_path, notice: "店舗の登録が完了しました"
-      else
-        render :new
-      end
-    end
+    super
+    # @store = Store.new(configure_sign_up_params)
+    # binding.pry
+    # if @store.save
+    #   # bypass_sign_in(store_params)
+    #   redirect_to storetop_records_path, notice: "店舗の登録が完了しました"
+    # else
+    #   render :new
+    # end
   end
 
   # GET /resource/edit
@@ -50,7 +50,7 @@ class Stores::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :representative_name, :tel, :payment])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -64,7 +64,7 @@ class Stores::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_inactive_sign_up_path_for(resource)
+    redirect_to storetop_records_path(resource)
+  end
 end
