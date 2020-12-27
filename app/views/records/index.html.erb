@@ -4,6 +4,7 @@
   <thead>
     <tr class="index">
       <th>お客様ID</th>
+      <th>施術店</th>
       <th>施術日</th>
       <th>施術者</th>
       <th>いいね</th>
@@ -14,6 +15,7 @@
     <% @records.each do |r| %>
       <tr>
         <td><%= r.user.display_id %></td>
+        <td><%= r.store.name %></td>
         <td><%= r.created_at.to_s %></td>
         <td><%= r.person_in_charge %></td>
         <!-- ユーザーがログインした場合ユーザーに関連付けられた物が出て、いいねが出来る -->

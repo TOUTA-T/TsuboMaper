@@ -5,11 +5,12 @@ class CommentsController < ApplicationController
     @record = Record.find(params[:record_id])
     @comment = @record.comments.build(comment_params)
     respond_to do |format|
-      if @comment.save
+      if @comment[:content] != ""
+        @comment.save
         format.js { render :index }
-        format.html { redirect_to during_treatment_path(@record) }
+        format.html { redirect_to during_treatment_record_path(@record) }
       else
-        format.html { redirect_to during_treatment_path(@record), notice: '投稿できませんでした...' }
+        format.html { redirect_to during_treatment_record_path(@record), notice: '投稿できませんでした...' }
       end
     end
   end
@@ -51,6 +52,6 @@ class CommentsController < ApplicationController
   end
 
   def set_record
-  @record = Record.find(params[:record_id])
+    @record = Record.find(params[:record_id])
   end
 end
