@@ -12,5 +12,6 @@ class ApplicationController < ActionController::Base
 
   def after_sign_out_path_for(resource)
    new_store_session_path
+   # ココもログイン後ユーザーは投稿一覧へ行くようにする。
   end
 end

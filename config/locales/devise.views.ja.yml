@@ -3,18 +3,24 @@ ja:
     attributes:
       user:
         current_password: "現在のパスワード"
-        email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
+        email: ユーザーメールアドレス
+        display_id: 表示ID
+        admin: 管理者
+        user: ユーザー
       store:
         current_password: "現在のパスワード"
-        email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
-    models:
-      user: "ユーザ"
+        email: 店舗メールアドレス
+        name: 店舗名
+        representative_name: 代表者名
+        tel: 携帯電話番号
+        payment: 支払情報
+        store: 店舗
   users:
     confirmations:
       new:
@@ -114,7 +120,7 @@ ja:
         sign_up: "アカウント登録"
         name: "店舗名を入力(必須)"
         representative_name: "代表者名を入力(必須)"
-        tel: "電話番号を入力(必須)"
+        tel: "携帯電話番号を入力(必須)"
     sessions:
       new:
         sign_in: "ログイン"

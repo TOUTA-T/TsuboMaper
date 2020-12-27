@@ -27,7 +27,7 @@ ja:
         email: 店舗メールアドレス
         name: 店舗名
         representative_name: 代表者名
-        tel: 電話番号
+        tel: 携帯電話番号
         payment: 支払情報
       users:
         email: ユーザーメールアドレス
